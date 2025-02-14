@@ -11,7 +11,10 @@ const PORT = process.env.PORT || 7700
 const app = express()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: ['https://book-frontend-qoxj.vercel.app', 'http://localhost:3000'],
+    credentials: true
+}))
 
 app.use('/api/user', userRouter)
 app.use('/api/author', authorRouter)
